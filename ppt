@@ -1,0 +1,12 @@
+// personal code:
+// int i = 1;
+// a=rndi;
+// b= a+1;
+// f1=f(a);
+// f2=f(b);
+// if(f1>0&&f2>f1)i--;
+// else if(f1<0&&f2<f1)i--;
+// while(f(f1)*f(f2)>0){
+//     f1=f2;
+//     f2+=i;
+// }
