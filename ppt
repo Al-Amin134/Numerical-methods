@@ -4,8 +4,8 @@
 // b= a+1;
 // f1=f(a);
 // f2=f(b);
-// if(f1>0&&f2>f1)i--;
-// else if(f1<0&&f2<f1)i--;
+// if(f1>0&&f2>f1)i=-i;
+// else if(f1<0&&f2<f1)i=-i;
 // while(f(f1)*f(f2)>0){
 //     f1=f2;
 //     f2+=i;
