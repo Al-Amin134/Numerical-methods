@@ -1,0 +1,75 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+class GAUSS_ELIMINATION
+{
+public:
+
+    void solve(){
+        int n;
+        cin>>n;
+        double x[n],y[n];
+        double sumx=0,sumxx=0,sumxxx=0,sumxxxx=0,sumxy=0,sumy=0,sumxxy=0;
+        for(int i=0;i<n;i++){
+            cin>>x[i]>>y[i];
+            sumx+=x[i];
+            sumxx+=(x[i]*x[i]);
+            sumxxx+=(x[i]*x[i]*x[i]);
+            sumxxxx+=(x[i]*x[i]*x[i]*x[i]);
+
+            sumxy+=(x[i]*y[i]);
+            sumy+=y[i];
+            sumxxy+=(x[i]*x[i]*y[i]);
+        }
+
+
+
+        double mat[n][n+1]={{double (n),sumx,sumxx,sumy},{sumx,sumxx,sumxxx,sumxy},{sumxx,sumxxx,sumxxxx,sumxxy}};
+
+        // **************************************
+
+        for(int i=0;i<n-1;i++){
+            for(int j=i+1;j<n;j++){
+                double p = (mat[j][i]/mat[i][i]);
+                for(int k=i;k<=n;k++){
+                    mat[j][k]-=(mat[i][k]*p);
+                }
+            }
+        }
+
+
+         cout<<"The augmented metrix :\n\n";
+        for(int i=0;i<n;i++){
+            for(int j=0;j<=n;j++){
+
+                cout<<mat[i][j]<<" ";
+
+            }
+            cout<<endl;
+        }
+
+
+    double res[n];
+    res[n-1]=mat[n-1][n]/mat[n-1][n-1];
+    for(int i=n-2;i>=0;i--){
+        res[i] = mat[i][n];
+        for(int j=i+1;j<n;j++){
+            res[i]-=(mat[i][j]*res[j]);
+        }
+        res[i]/=mat[i][i];
+    }
+
+
+for(int i=0;i<n;i++){
+cout<<res[i]<<" ";
+
+}
+}
+
+};
+int main()
+{
+    cout<<fixed<<setprecision(2)<<endl;
+    GAUSS_ELIMINATION g;
+    g.solve();
+}
